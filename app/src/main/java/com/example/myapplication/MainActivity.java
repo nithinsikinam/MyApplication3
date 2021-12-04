@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "27.6.130.5:12345/json/sample.json", null, new Response.Listener<JSONObject>() {
+                "http://27.6.130.5:12345/json/sample.json", null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("myapp", "Something went wrong");
-
+                Log.d("myapp", error.getMessage());
             }
         });
 
