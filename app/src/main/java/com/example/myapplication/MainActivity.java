@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     Log.d("myapp", "The response is");
-                    Log.d("myapp", "The response is" + response.getJSONArray("member").getString(1));
+                    Log.d("myapp", "The response is" + response.getJSONObject("data").getJSONArray("Members").getString(1));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
