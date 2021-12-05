@@ -49,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("myapp",Integer.toString(Chapters) );
 
                     mList = new ArrayList<>();
-                    for(int x = 0 ;x<Chapters-1;x++){
+                    for(int x = 0 ;x<Chapters;x++){
     List<String> nestedList1 = new ArrayList<>();
     int topics= response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").length();
-  for (int y = 0;y<topics-1;y++){
+  for (int y = 0;y<topics;y++){
     nestedList1.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getString("topic"));
 }
 mList.add(new DataModel(nestedList1,response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getString("chapter")));
