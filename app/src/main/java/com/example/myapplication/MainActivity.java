@@ -17,6 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -32,8 +34,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Log.d("myapp", "The response is");
-                    Log.d("myapp", "The response is" + response.getJSONObject("data").getJSONArray("Members").getString(1));
+                 int Chapters= response.getJSONObject("data").getJSONArray("course").length();
+for(int x = 0 ;x<Chapters;x++){
+    List<String> nestedList1 = new ArrayList<>();
+    int topics= response.getJSONObject("data").getJSONArray("course").getJSONObject(Chapters).getJSONArray("topics").length();
+for (int y = 0;y<topics;y++){
+
+}
+}
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
