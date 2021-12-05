@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView recyclerView;
+    private List<DataModel> mList;
+    private ItemAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +38,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+
                  int Chapters= response.getJSONObject("data").getJSONArray("course").length();
-for(int x = 0 ;x<Chapters;x++){
+                    mList = new ArrayList<>();
+                    for(int x = 0 ;x<Chapters;x++){
     List<String> nestedList1 = new ArrayList<>();
     int topics= response.getJSONObject("data").getJSONArray("course").getJSONObject(Chapters).getJSONArray("topics").length();
 for (int y = 0;y<topics;y++){
-
+    nestedList1.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(Chapters).getJSONArray("topics").getJSONObject(1).getString("topic"));
 }
+mList.add(new DataModel(nestedList1,response.getJSONObject("data").getJSONArray("course").getJSONObject(1).getString("chapter")));
 }
-
+                    adapter = new ItemAdapter(mList);
+                    recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
