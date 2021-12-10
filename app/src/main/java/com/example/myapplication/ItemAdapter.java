@@ -16,12 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
-
+    private List<List<DataModel2>> mlist2= new ArrayList<>();
     private List<DataModel> mList;
     private List<String> list = new ArrayList<>();
 
     public ItemAdapter(List<DataModel> mList){
         this.mList  = mList;
+        for (int x = 0; x<mList.size();x++)
+mlist2.add(mList.get(x).nestedList2);
+
     }
     @NonNull
     @Override
@@ -34,6 +37,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
         DataModel model = mList.get(position);
+List<DataModel2> model2 = mlist2.get(position);
         holder.mTextView.setText(model.getItemText());
 
         boolean isExpandable = model.isExpandable();
@@ -45,7 +49,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             holder.mArrowImage.setImageResource(R.drawable.arrow_down);
         }
 
-        NestedAdapter adapter = new NestedAdapter(list);
+        NestedAdapter adapter = new NestedAdapter(list,model2);
         holder.nestedRecyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
         holder.nestedRecyclerView.setHasFixedSize(true);
         holder.nestedRecyclerView.setAdapter(adapter);
@@ -55,6 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 model.setExpandable(!model.isExpandable());
                 list = model.getNestedList();
                 notifyItemChanged(holder.getAdapterPosition());
+
             }
         });
     }

@@ -1,20 +1,26 @@
 package com.example.myapplication;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedViewHolder> {
-
     private List<String> mList;
+    private List<DataModel2> mList2;
 
-    public NestedAdapter(List<String> mList){
+
+    public NestedAdapter(List<String> mList,List<DataModel2> mList2){
         this.mList = mList;
+        this.mList2 = mList2;
     }
     @NonNull
     @Override
@@ -26,6 +32,14 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedView
     @Override
     public void onBindViewHolder(@NonNull NestedViewHolder holder, int position) {
         holder.mTv.setText(mList.get(position));
+holder.cV.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this,resourcetab.class);
+        mList2.get(holder.getAdapterPosition());
+
+    }
+});
     }
 
     @Override
@@ -35,9 +49,11 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedView
 
     public class NestedViewHolder extends RecyclerView.ViewHolder{
         private TextView mTv;
+        private CardView cV;
         public NestedViewHolder(@NonNull View itemView) {
             super(itemView);
             mTv = itemView.findViewById(R.id.nestedItemTv);
+            cV = itemView.findViewById(R.id.cardView);
         }
     }
 }

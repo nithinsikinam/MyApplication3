@@ -3,13 +3,15 @@ package com.example.myapplication;
 
 public class DataModel {
 
-    private List<String> nestedList;
+    private List<String> nestedList1;
+    public List<DataModel2> nestedList2;
     private String itemText;
     private boolean isExpandable;
 
-    public DataModel(List<String> itemList, String itemText) {
-        this.nestedList = itemList;
+    public DataModel(List<DataModel2> itemList, String itemText , List<String> nestedList1) {
+        this.nestedList2 = itemList;
         this.itemText = itemText;
+        this.nestedList1= nestedList1;
         isExpandable = false;
     }
 
@@ -18,7 +20,7 @@ public class DataModel {
     }
 
     public List<String> getNestedList() {
-        return nestedList;
+        return nestedList1;
     }
 
     public String getItemText() {

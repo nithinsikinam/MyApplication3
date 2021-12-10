@@ -24,8 +24,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView ;
-    private List<DataModel> mList;
+    private List<DataModel> mList= new ArrayList<>();;
     private ItemAdapter adapter;
+    private List<DataModel2> mList2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "https://api.npoint.io/bae1983ffd460af76281", null, new Response.Listener<JSONObject>() {
+                "http://27.6.130.5:12345/json/sample.json", null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -50,12 +51,27 @@ public class MainActivity extends AppCompatActivity {
 
                     mList = new ArrayList<>();
                     for(int x = 0 ;x<Chapters;x++){
-    List<String> nestedList1 = new ArrayList<>();
+                        List<String> strings = new ArrayList<>();
+    List<DataModel2> nestedList1 = new ArrayList<>();
     int topics= response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").length();
-  for (int y = 0;y<topics;y++){
-    nestedList1.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getString("topic"));
-}
-mList.add(new DataModel(nestedList1,response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getString("chapter")));
+
+    for (int y = 0;y<topics;y++){
+      DataModel2 unit =  new DataModel2();
+      strings.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getString("topic"));
+      int resources=   response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getJSONArray("resources").length();
+      List<String> URL = new ArrayList<>();
+      List<String> type = new ArrayList<>();
+      List<String> Giver = new ArrayList<>();
+      for (int z = 0;z<resources;z++){
+           URL.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getJSONArray("resources").getJSONObject(z).getString("url"));
+          type.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getJSONArray("resources").getJSONObject(z).getString("type"));
+          Giver.add(response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getJSONArray("topics").getJSONObject(y).getJSONArray("resources").getJSONObject(z).getString("name"));
+      }
+  unit.add(URL,type,Giver);
+      nestedList1.add(unit);
+
+    }
+mList.add(new DataModel(nestedList1,response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getString("chapter"),strings));
 }
                     adapter = new ItemAdapter(mList);
                     recyclerView.setAdapter(adapter);
