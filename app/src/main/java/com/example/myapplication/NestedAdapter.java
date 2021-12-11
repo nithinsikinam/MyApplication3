@@ -39,8 +39,9 @@ holder.cV.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(context, resourcetab.class);
-        mList2.get(holder.getAdapterPosition());
 
+        intent.putExtra("object", mList2.get(holder.getAdapterPosition()));
+context.startActivity(intent);
     }
 });
     }
