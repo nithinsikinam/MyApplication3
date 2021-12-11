@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +20,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private List<List<DataModel2>> mlist2= new ArrayList<>();
     private List<DataModel> mList;
     private List<String> list = new ArrayList<>();
+    private Context context;
 
-    public ItemAdapter(List<DataModel> mList){
+    public ItemAdapter(List<DataModel> mList, Context context){
         this.mList  = mList;
         for (int x = 0; x<mList.size();x++)
 mlist2.add(mList.get(x).nestedList2);
+        this.context=context;
 
     }
     @NonNull
@@ -49,7 +52,7 @@ List<DataModel2> model2 = mlist2.get(position);
             holder.mArrowImage.setImageResource(R.drawable.arrow_down);
         }
 
-        NestedAdapter adapter = new NestedAdapter(list,model2);
+        NestedAdapter adapter = new NestedAdapter(list,model2,context);
         holder.nestedRecyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
         holder.nestedRecyclerView.setHasFixedSize(true);
         holder.nestedRecyclerView.setAdapter(adapter);

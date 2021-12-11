@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,11 +17,13 @@ import java.util.List;
 public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedViewHolder> {
     private List<String> mList;
     private List<DataModel2> mList2;
+    private Context context;
 
 
-    public NestedAdapter(List<String> mList,List<DataModel2> mList2){
+    public NestedAdapter(List<String> mList, List<DataModel2> mList2, Context context){
         this.mList = mList;
         this.mList2 = mList2;
+        this.context = context;
     }
     @NonNull
     @Override
@@ -35,7 +38,7 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedView
 holder.cV.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this,resourcetab.class);
+        Intent intent = new Intent(context, resourcetab.class);
         mList2.get(holder.getAdapterPosition());
 
     }

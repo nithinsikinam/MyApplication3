@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 mList.add(new DataModel(nestedList1,response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getString("chapter"),strings));
 }
-                    adapter = new ItemAdapter(mList);
+                    adapter = new ItemAdapter(mList,MainActivity.this);
                     recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
