@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".website1"
+            android:exported="true" />
+        <activity
             android:name=".resourcetab"
             android:exported="true" />
         <activity

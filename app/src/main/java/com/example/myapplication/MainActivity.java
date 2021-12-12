@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "http://27.6.130.5:12345/json/sample.json", null, new Response.Listener<JSONObject>() {
+                "http://192.168.1.13:12345/json/sample.json", null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {

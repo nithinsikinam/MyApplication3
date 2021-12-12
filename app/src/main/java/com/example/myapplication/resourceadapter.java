@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class resourceadapter extends RecyclerView.Adapter<resourceadapter.ViewHolder> {
-    private List<String> URL= new ArrayList<>();
+    private List<String> URL;
 private  Context context;
-    private List<String> type=new ArrayList<>();
-    private List<String> Giver=new ArrayList<>();
+    private List<String> type;
+    private List<String> Giver;
     public resourceadapter(DataModel2 data,Context context){
         this.URL=data.URL;
         this.type=data.type;
@@ -46,22 +47,21 @@ private  Context context;
     holder.type1.setText(type.get(position));
     holder.name1.setText(Giver.get(position));
     holder.liner.setOnClickListener(new View.OnClickListener() {
-        Intent intent = new Intent(context, website.class);
+        Intent intent = new Intent(context, website1.class);
         @Override
         public void onClick(View v) {
-switch (type.get(holder.getAdapterPosition())){
-    case "ppt":
+            String t= type.get(holder.getAdapterPosition()) ;
+            if(t.equals("ppt")){
+                Log.d("test1",t+"/");
+                intent.putExtra("url","http://docs.google.com/gview?embedded=true&url="+URL.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
+            else{
+                intent.putExtra("url",URL.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
 
 
-        intent.putExtra("url","http://docs.google.com/gview?embedded=true&url="+ URL.get(holder.getAdapterPosition()));
-        context.startActivity(intent);
-
-    default:
-        intent.putExtra("url", URL.get(holder.getAdapterPosition()));
-        context.startActivity(intent);
-
-
-}
         }
     });
     }
