@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,26 +17,124 @@ import com.android.volley.VolleyError;
 
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.databinding.ActivityMainBinding;
 
-import org.json.JSONArray;
+
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+
+import android.view.View;
+
+import android.widget.Toast;
+
+
+
+
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+
+
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView ;
     private List<DataModel> mList= new ArrayList<>();;
     private ItemAdapter adapter;
     private List<DataModel2> mList2;
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.main_recyclerview);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        final ImageView fabIconNaw = new ImageView(this);
+        fabIconNaw.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_adjust_24));
+
+        final FloatingActionButton topLeftButton = new FloatingActionButton.Builder(this)
+                .setContentView(fabIconNaw)
+                .setPosition(FloatingActionButton.POSITION_BOTTOM_RIGHT)
+                .build();
+
+        SubActionButton.Builder tLSubBuilder = new SubActionButton.Builder(this);
+        ImageView menuOption1 = new ImageView(this);
+        ImageView menuOption2 = new ImageView(this);
+        ImageView menuOption3 = new ImageView(this);
+
+
+        menuOption1.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_arrow_forward_ios_24));
+        menuOption2.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_add_24));
+        menuOption3.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_library_books_24));
+
+
+        final FloatingActionMenu topLeftMenu = new FloatingActionMenu.Builder(this)
+                .addSubActionView(tLSubBuilder.setContentView(menuOption1).build())
+                .addSubActionView(tLSubBuilder.setContentView(menuOption2).build())
+                .addSubActionView(tLSubBuilder.setContentView(menuOption3).build())
+
+                .attachTo(topLeftButton)
+                .build();
+
+        topLeftMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
+            @Override
+            public void onMenuOpened(FloatingActionMenu floatingActionMenu) {
+                fabIconNaw.setRotation(180);
+                PropertyValuesHolder pvhr = PropertyValuesHolder.ofFloat(View.ROTATION, 270);
+                ObjectAnimator animation = ObjectAnimator.ofPropertyValuesHolder(fabIconNaw, pvhr);
+                animation.start();
+            }
+
+            @Override
+            public void onMenuClosed(FloatingActionMenu floatingActionMenu) {
+
+                fabIconNaw.setRotation(90);
+                PropertyValuesHolder pvhr = PropertyValuesHolder.ofFloat(View.ROTATION, 45);
+                ObjectAnimator animation = ObjectAnimator.ofPropertyValuesHolder(fabIconNaw, pvhr);
+                animation.start();
+
+            }
+        });
+
+        menuOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Option1", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        menuOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,CreateChannel.class);
+                startActivity(intent);
+
+
+            }
+        });
+        menuOption3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Option 3", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+
+    recyclerView = findViewById(R.id.main_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

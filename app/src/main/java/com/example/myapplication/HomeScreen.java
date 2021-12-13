@@ -2,8 +2,11 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -20,41 +23,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class HomeScreen extends AppCompatActivity {
-
+Button button1;
+Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-// Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://27.6.130.5:12345/json/sample.json";
 
-// Request a string response from the provided URL.
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET, url, null,
-               new Response.Listener<JSONObject>() {
-                   @Override
-                           public void onResponse (JSONObject response){
-                       try {
-                           String url =response.getString("data");
-                           Log.d("Response","url");
-                       } catch (JSONException e) {
-                           e.printStackTrace();
-                       }
-                   }
-                },  new Response.ErrorListener() {
+button1= findViewById(R.id.Login);
+button1.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(HomeScreen.this,Login.class);
+    startActivity(intent);
+    }
+});
+        button2= findViewById(R.id.Register);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d(
-                        "Error","Fetching Error"
-                );
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this,register.class);
+                startActivity(intent);
             }
         });
-
-// Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest);
-
 
     }
 }

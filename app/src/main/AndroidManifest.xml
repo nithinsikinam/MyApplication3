@@ -13,16 +13,25 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".register"
+            android:exported="true" />
+        <activity
+            android:name=".Login"
+            android:exported="true" />
+        <activity
+            android:name=".CreateChannel"
+            android:exported="true" />
+        <activity
             android:name=".website1"
             android:exported="true" />
         <activity
             android:name=".resourcetab"
             android:exported="true" />
         <activity
-            android:name=".HomeScreen"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeScreen"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyApplication.NoActionBar">
