@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,18 +51,36 @@ Log.d("test","clicked");
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "http://192.168.1.13:12345/login.php?"+name.getText()+"&"+pass.getText(), null, new Response.Listener<JSONObject>() {
+                "http://192.168.1.13:12345/login2.php?Name="+name.getText()+"&pass="+pass.getText(), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     if (response.getString("value").equals("yes")){
-Intent intent = new Intent(Login.this,MainActivity.class);
-startActivity(intent);
+
+// Storing data into SharedPreferences
+                        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+
+// Creating an Editor object to edit(write to the file)
+                        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+// Storing the key and its value as the data fetched from edittext
+                        myEdit.putString("name", name.getText().toString());
+                        myEdit.putString("pass",pass.getText().toString());
+                        myEdit.putString("Logged","true");
+
+// Once the changes have been made,
+// we need to commit to apply those changes made,
+// otherwise, it will throw an error
+                        myEdit.commit();
+                        Intent intent = new Intent(Login.this,MainActivity.class);
+                        startActivity(intent);
                     }
                     else{
                         textView.setTextColor(Color.RED);
+
                     }
                 } catch (JSONException e) {
+
                     e.printStackTrace();
                 }
 
@@ -71,7 +90,7 @@ startActivity(intent);
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+Log.d("test","erororroro");
             }
         });
 
