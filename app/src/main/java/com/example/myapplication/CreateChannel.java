@@ -8,11 +8,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateChannel extends AppCompatActivity {
 Button button ;
 EditText editText;
-String ChannelName;
+String ChannelName="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +37,26 @@ editText=findViewById(R.id.classNameInput);
             public void onClick(View v) {
 ChannelName=editText.getText().toString();
 if(ChannelName.equals("")){
-
+    Toast.makeText(getApplicationContext(),"Enter valid Channel Name ",Toast.LENGTH_SHORT).show();
 }
 else{
+    StringRequest stringRequest = new StringRequest("http://192.168.1.13:12345/create.php?name="+ChannelName, new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+
+
+
+            Log.d("Data is here","cl");
+        }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Log.d("not donee","not don");
+        }
+    });
+
+    RequestQueue queue = Volley.newRequestQueue(CreateChannel.this);
+    queue.add(stringRequest);
 
 }
                 }

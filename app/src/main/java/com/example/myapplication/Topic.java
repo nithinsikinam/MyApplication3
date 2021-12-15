@@ -8,6 +8,6 @@ class Topic {
         this.resources = resources;
     }
 
-    private String topic;
-private List<Resource> resources;
+    public String topic;
+public List<Resource> resources;
 }

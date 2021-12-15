@@ -8,6 +8,6 @@ class Data {
         this.course = course;
     }
 
-    private  List<String> Members;
-private List<Course> course;
+    public  List<String> Members ;
+public List<Course> course;
 }

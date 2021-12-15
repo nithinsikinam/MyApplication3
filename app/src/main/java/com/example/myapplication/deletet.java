@@ -1,5 +1,4 @@
 package com.example.myapplication;
 
-class nson{
-public Data data;
+public class deletet {
 }

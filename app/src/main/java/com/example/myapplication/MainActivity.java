@@ -49,14 +49,26 @@ public class MainActivity extends AppCompatActivity {
     private ItemAdapter adapter;
     private List<DataModel2> mList2;
     private ActivityMainBinding binding;
+    private FloatingActionButton fab;
+    private String chname = "10";
+    public void onClicked(View v) {
+        Intent intent = new Intent(MainActivity.this,addchapter.class);
+        intent.putExtra("Channel",chname);
+        startActivity(intent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
+
 
         final ImageView fabIconNaw = new ImageView(this);
         fabIconNaw.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_adjust_24));
@@ -142,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "http://192.168.1.13:12345/json/sample.json", null, new Response.Listener<JSONObject>() {
+                "http://192.168.1.13:12345/Channels/"+chname+"/Main.json", null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -174,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
     }
 mList.add(new DataModel(nestedList1,response.getJSONObject("data").getJSONArray("course").getJSONObject(x).getString("chapter"),strings));
 }
-                    adapter = new ItemAdapter(mList,MainActivity.this);
+                    adapter = new ItemAdapter(mList,MainActivity.this,chname);
                     recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
