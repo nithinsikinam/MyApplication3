@@ -42,21 +42,21 @@
                 android:id="@+id/arro_imageview"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="160dp"
+                android:layout_marginStart="228dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/arrow_down"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageButton
                 android:id="@+id/aTopic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="107dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toStartOf="@+id/dChapter"
                 app:layout_constraintStart_toEndOf="@+id/arro_imageview"
                 app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +71,10 @@
                 android:layout_marginBottom="13dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.974"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@android:drawable/ic_delete"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
