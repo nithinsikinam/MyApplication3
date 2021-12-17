@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,10 +41,13 @@ if(ChannelName.equals("")){
     Toast.makeText(getApplicationContext(),"Enter valid Channel Name ",Toast.LENGTH_SHORT).show();
 }
 else{
-    StringRequest stringRequest = new StringRequest("http://192.168.1.13:12345/create.php?name="+ChannelName, new Response.Listener<String>() {
+    StringRequest stringRequest = new StringRequest("http://27.6.130.5:12345/create.php?name="+ChannelName, new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
-
+            SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+            String s1 = sh.getString("name", "");
+            Joinchannel joinchannel = new Joinchannel(s1,response,CreateChannel.this);
+            joinchannel.joiner();
 
 
             Log.d("Data is here","cl");

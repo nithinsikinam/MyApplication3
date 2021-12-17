@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static java.lang.Thread.sleep;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,14 +33,29 @@ public class Splash extends AppCompatActivity {
 
 
         String s1 = sh.getString("Logged", "");
-        if(s1.equals("true")){
-            Intent intent = new Intent(Splash.this,MainActivity.class);
-        startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(Splash.this,HomeScreen.class);
-            startActivity(intent);
-        }
+        Thread thread = new Thread(){
+            public void run(){
+                try{
+                    sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                finally{
+                    if(s1.equals("true")){
+                        Intent intent = new Intent(Splash.this,MainActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Intent intent = new Intent(Splash.this,HomeScreen.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+        };thread.start();
+
+
+
+
 
 
 

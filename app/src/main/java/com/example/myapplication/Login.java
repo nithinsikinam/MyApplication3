@@ -51,7 +51,7 @@ Log.d("test","clicked");
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "http://192.168.1.13:12345/login2.php?Name="+name.getText()+"&pass="+pass.getText(), null, new Response.Listener<JSONObject>() {
+                "http://27.6.130.5:12345/login2.php?Name="+name.getText()+"&pass="+pass.getText(), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {

@@ -41,7 +41,7 @@ private Button button ;
             public void onClick(View v) {
                 Log.d("clickkk","clickyyy");
                 String x = getIntent().getStringExtra("Channel");
-                StringRequest stringRequest = new StringRequest("http://192.168.1.13:12345/Channels/" + x + "/Main.json", new Response.Listener<String>() {
+                StringRequest stringRequest = new StringRequest("http://27.6.130.5:12345/Channels/" + x + "/Main.json", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -52,8 +52,9 @@ private Button button ;
                         Course course = new Course(edittext.getText().toString(), topics);
                         json.data.course.add(course);
                         executeSendFeedbackForm(json,x);
-                        Log.d("Data is here","cl");
+                        Log.d("Data is here",response);
                         Intent intent = new Intent(addchapter.this,MainActivity.class);
+                        intent.putExtra("id",x);
                         startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
@@ -85,7 +86,7 @@ Retrofit retrofit = builder.build();
 
             @Override
             public void onFailure(Call<nson> call,Throwable t){
-
+                Log.d("Done",t.getMessage());
             }
 
         });

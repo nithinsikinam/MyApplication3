@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -24,11 +26,17 @@ public class resourceadapter extends RecyclerView.Adapter<resourceadapter.ViewHo
 private  Context context;
     private List<String> type;
     private List<String> Giver;
-    public resourceadapter(DataModel2 data,Context context){
+    private String channel;
+    private String chapter;
+    private String topic;
+    public resourceadapter(DataModel2 data,Context context,String channel,String chapter,String topic){
         this.URL=data.URL;
         this.type=data.type;
         this.Giver=data.Giver;
         this.context=context;
+        this.chapter=chapter;
+        this.channel=channel;
+        this.topic=topic;
     }
 
 
@@ -46,18 +54,28 @@ private  Context context;
     URL.get(position);
     holder.type1.setText(type.get(position));
     holder.name1.setText(Giver.get(position));
+    holder.button.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            deleter obj = new deleter(channel,chapter,topic,context,URL.get(holder.getAdapterPosition()),Giver.get(holder.getAdapterPosition()));
+        obj.delete();
+        }
+    });
     holder.liner.setOnClickListener(new View.OnClickListener() {
         Intent intent = new Intent(context, website1.class);
         @Override
         public void onClick(View v) {
             String t= type.get(holder.getAdapterPosition()) ;
-            if(t.equals("ppt")){
-                Log.d("test1",t+"/");
-                intent.putExtra("url","http://docs.google.com/gview?embedded=true&url="+URL.get(holder.getAdapterPosition()));
+            if (t.equals("ppt")) {
+                Log.d("test1", t + "/");
+                intent.putExtra("url", "http://docs.google.com/gview?embedded=true&url=" + URL.get(holder.getAdapterPosition()));
                 context.startActivity(intent);
-            }
-            else{
-                intent.putExtra("url",URL.get(holder.getAdapterPosition()));
+            } else if (t.equals("pdf")) {
+                Log.d("test1", t + "/");
+                intent.putExtra("url", "http://docs.google.com/gview?embedded=true&url=" + URL.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            } else {
+                intent.putExtra("url", URL.get(holder.getAdapterPosition()));
                 context.startActivity(intent);
             }
 
@@ -75,6 +93,7 @@ private  Context context;
         private LinearLayout liner ;
         private TextView type1;
         private TextView name1;
+        private ImageButton button;
 
 
 
@@ -84,6 +103,7 @@ private  Context context;
             liner = itemView.findViewById(R.id.liner);
             name1 = itemView.findViewById(R.id.textView6);
             type1 = itemView.findViewById(R.id.textView7);
+            button = itemView.findViewById(R.id.dResource);
 
 
         }

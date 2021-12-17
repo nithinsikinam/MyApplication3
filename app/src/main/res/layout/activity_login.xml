@@ -21,24 +21,23 @@
         android:letterSpacing="0.03"/>
 
     <EditText
+        android:id="@+id/name2"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:background="@drawable/forget"
-        android:text="Name"
-        android:textColor="#0d6e6a"
-        android:textStyle="bold"
-        android:textSize="18dp"
         android:layout_marginTop="30dp"
+        android:background="@drawable/forget"
+        android:hint="name"
         android:paddingLeft="20dp"
-        android:id="@+id/name2"
-        />
+        android:textColorHint="#0d6e6a"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:background="@drawable/forget"
-        android:text="Password"
-        android:textColor="#0d6e6a"
+        android:hint="Password"
+        android:textColorHint="#0d6e6a"
         android:textStyle="bold"
         android:textSize="18dp"
         android:layout_marginTop="20dp"

@@ -21,21 +21,21 @@
             android:layout_below="@+id/linearLayout2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
-            android:text="Enter Your Topic Details..." />
+            android:text="Enter Your Channel id" />
 
         <EditText
-            android:id="@+id/Addingtopic"
+            android:id="@+id/joinchannel"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
-            android:hint="Topic Name "
+            android:hint="Channel "
             android:inputType="text"
 
             />
 
 
         <Button
-            android:id="@+id/Addingtopicbutton"
+            android:id="@+id/Joiningchannelbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Next" />

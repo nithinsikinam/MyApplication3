@@ -54,6 +54,7 @@ public void delete(){
             executeSendFeedbackForm(json,Channeln);
             Log.d("Data is here","cl");
             Intent intent = new Intent(context,MainActivity.class);
+            intent.putExtra("id",Channeln);
             context.startActivity(intent);
         }
     }, new Response.ErrorListener() {

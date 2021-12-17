@@ -15,4 +15,9 @@ public interface TaskService {
             @Body nson json,//,@Field("Channel") String Channel
             @Query("Channel") String user
     );
+    @POST("Joiner.php")
+    Call<join> sendpost2(
+            @Body join json,//,@Field("Channel") String Channel
+            @Query("idUser") String user
+    );
 }

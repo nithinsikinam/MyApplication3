@@ -14,6 +14,21 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AddFile"
+            android:exported="true" />
+        <activity
+            android:name=".AddUrl"
+            android:exported="true" />
+        <activity
+            android:name=".add_resource2"
+            android:exported="true" />
+        <activity
+            android:name=".JoinedChannels"
+            android:exported="true" />
+        <activity
+            android:name=".JoinPage"
+            android:exported="true" />
+        <activity
             android:name=".addTopic"
             android:exported="true" />
         <activity

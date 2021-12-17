@@ -57,7 +57,7 @@ List<DataModel2> model2 = mlist2.get(position);
             holder.mArrowImage.setImageResource(R.drawable.arrow_down);
         }
 
-        NestedAdapter adapter = new NestedAdapter(list,model2,context);
+        NestedAdapter adapter = new NestedAdapter(list,model2,context,chname,model.getItemText());
         holder.nestedRecyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
         holder.nestedRecyclerView.setHasFixedSize(true);
         holder.nestedRecyclerView.setAdapter(adapter);
@@ -73,7 +73,7 @@ List<DataModel2> model2 = mlist2.get(position);
             public void onClick(View v) {
                 Intent intent = new Intent(context,addTopic.class);
                 intent.putExtra("chname",chname);
-                intent.putExtra("chapter",model.getItemText());
+                intent.putExtra("Chapter",model.getItemText());
                 context.startActivity(intent);
             }
         });

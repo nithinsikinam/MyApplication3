@@ -44,7 +44,7 @@ button.setOnClickListener(new View.OnClickListener() {
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                "http://192.168.1.13:12345/register.php?name="+name.getText()+"&pass="+pass.getText()+"&email="+email.getText(), null, new Response.Listener<JSONObject>() {
+                "http://27.6.130.5:12345/register.php?name="+name.getText()+"&pass="+pass.getText()+"&email="+email.getText(), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -54,7 +54,7 @@ button.setOnClickListener(new View.OnClickListener() {
                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
 // Storing the key and its value as the data fetched from edittext
-                myEdit.putString("name", name.getText().toString());
+                myEdit.putString("name", email.getText().toString());
                 myEdit.putString("pass",pass.getText().toString());
                 myEdit.putString("Logged","true");
 
