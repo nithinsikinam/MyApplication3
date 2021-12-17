@@ -139,7 +139,7 @@ public class AddUrl extends AppCompatActivity {
         });
     }
 
-    public void checkButton1(View view) {
+    public void checkButton(View view) {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
 
