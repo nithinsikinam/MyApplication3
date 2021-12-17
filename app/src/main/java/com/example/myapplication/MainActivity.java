@@ -86,7 +86,7 @@ chname=getIntent().getStringExtra("id");
         ImageView menuOption3 = new ImageView(this);
         ImageView menuOption4 = new ImageView(this);
 
-        menuOption1.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_arrow_forward_ios_24));
+        menuOption1.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_login_24));
         menuOption2.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_add_24));
         menuOption3.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_library_books_24));
         menuOption4.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_library_books_24));
