@@ -6,10 +6,15 @@
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/drawable/arrow_down.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18958333333333333" />
+        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_add_topic.xml" value="0.10643115942028986" />
+        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_create_channel.xml" value="0.10643115942028986" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_home_screen.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_join_page.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_joined_channels.xml" value="0.10643115942028986" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/each_item.xml" value="0.1" />
+        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/each_item.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/each_join.xml" value="0.10643115942028986" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/layout/nested_item.xml" value="0.1" />
         <entry key="..\:/Users/Priyansha/AndroidStudioProjects/MyApplication3/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/nithi/StudioProjects/MyApplication3/app/src/main/res/drawable/arrow_down.xml" value="0.24166666666666667" />

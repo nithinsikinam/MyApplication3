@@ -21,14 +21,14 @@
             android:layout_below="@+id/linearLayout2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
-            android:text="Enter Your Chapter Details..." />
+            android:text="Enter your Topic Details...." />
 
         <EditText
             android:id="@+id/Addingchannel"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
-            android:hint="Chapter Name "
+            android:hint="Topic Name "
             android:inputType="text"
 
             />
