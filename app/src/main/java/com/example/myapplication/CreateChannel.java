@@ -46,11 +46,11 @@ else{
         public void onResponse(String response) {
             SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
             String s1 = sh.getString("name", "");
-            Joinchannel joinchannel = new Joinchannel(s1,response,CreateChannel.this);
+            Joinchannel joinchannel = new Joinchannel(s1,response.replaceAll("[\\n\\t ]", ""),CreateChannel.this);
             joinchannel.joiner();
 
 
-            Log.d("Data is here","cl");
+            Log.d("current",response+"hello\n"+"ok");
         }
     }, new Response.ErrorListener() {
         @Override
