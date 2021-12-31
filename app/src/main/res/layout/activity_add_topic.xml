@@ -16,29 +16,33 @@
 
         <TextView
             android:id="@+id/textView2"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
-            android:text="Enter Your Topic Details..." />
+            android:text="Enter Your Topic Details..."
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/Addingtopic"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
             android:hint="Topic Name "
             android:inputType="text"
-
+            android:background="@drawable/forget2"
             />
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Addingtopicbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:text="Next"
+            android:background="@drawable/bg"/>
     </LinearLayout>
 
 </RelativeLayout>

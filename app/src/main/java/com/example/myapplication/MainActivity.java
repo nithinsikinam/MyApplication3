@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private List<DataModel2> mList2;
     private ActivityMainBinding binding;
     private FloatingActionButton fab;
-    private String chname = "13";
+    private String chname = "null";
     public void onClicked(View v) {
         chname=getIntent().getStringExtra("id");
         Intent intent = new Intent(MainActivity.this,addchapter.class);
@@ -64,11 +64,6 @@ chname=getIntent().getStringExtra("id");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-
 
 
 

@@ -28,12 +28,12 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="CodingSTUFF"
-                android:textColor="@color/purple_700"
+                android:textColor="#FF5722"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.056"
+                app:layout_constraintHorizontal_bias="0.135"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
@@ -42,23 +42,23 @@
                 android:id="@+id/arro_imageview"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="228dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="4dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/arrow_down"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/itemTv"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageButton
                 android:id="@+id/aTopic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="12dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="13dp"
+                android:backgroundTint="#00000000"
                 app:layout_constraintEnd_toStartOf="@+id/dChapter"
-                app:layout_constraintStart_toEndOf="@+id/arro_imageview"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_add_24"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -76,7 +76,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@android:drawable/ic_delete"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:backgroundTint="#00000000"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

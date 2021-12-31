@@ -81,6 +81,7 @@
                 android:layout_height="26dp"
                 app:srcCompat="@android:drawable/ic_delete"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                android:backgroundTint="#00000000"
                 />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

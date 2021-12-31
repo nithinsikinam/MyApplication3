@@ -6,30 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".add_resource2">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addUrl"
-        android:layout_width="127dp"
-        android:layout_height="66dp"
+        android:layout_width="272dp"
+        android:layout_height="68dp"
         android:layout_marginStart="134dp"
         android:layout_marginTop="236dp"
         android:layout_marginEnd="183dp"
-        android:text="add Url"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/addFile"
-        android:layout_width="127dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="263dp"
-        android:text="add File"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Add Url"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addUrl" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addFile"
+        android:layout_width="272dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="432dp"
+        android:layout_marginEnd="183dp"
+
+        android:text="Add File"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

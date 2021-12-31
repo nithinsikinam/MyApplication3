@@ -15,13 +15,15 @@
         android:id="@+id/linearLayout2">
 
         <TextView
+            android:gravity="center_horizontal"
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
-            android:text="Enter your Topic Details...." />
+            android:text="Enter your Topic Details...."
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/Addingchannel"
@@ -30,15 +32,17 @@
             android:ems="10"
             android:hint="Topic Name "
             android:inputType="text"
+            android:background="@drawable/forget2"
 
             />
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Addingchannelbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:text="Next"
+            android:background="@drawable/bg"/>
     </LinearLayout>
 
 </RelativeLayout>

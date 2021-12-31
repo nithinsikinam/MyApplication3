@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +26,7 @@ import org.json.JSONObject;
 public class HomeScreen extends AppCompatActivity {
 Button button1;
 Button button2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,13 @@ button1.setOnClickListener(new View.OnClickListener() {
                 startActivity(intent);
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed(){
+
+        Toast.makeText(getApplicationContext(), " Can't go back now", Toast.LENGTH_SHORT).show();
 
     }
 }
