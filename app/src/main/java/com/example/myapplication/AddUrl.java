@@ -34,7 +34,7 @@ public class AddUrl extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton;
     EditText textView;
-
+    EditText textView2;
 
     private String channel;
     private String chapter;
@@ -50,6 +50,7 @@ public class AddUrl extends AppCompatActivity {
 
         radioGroup = findViewById(R.id.radioGroup);
         textView = findViewById(R.id.editTextTextPersonName2);
+        textView2 = findViewById(R.id.file);
 
         Button buttonSubmit = findViewById(R.id.button_submit);
         buttonSubmit.setOnClickListener(new View.OnClickListener(){
@@ -91,7 +92,7 @@ public class AddUrl extends AppCompatActivity {
 
 
                         String s1 = sh.getString("name", "");
-                        Resource obj = new Resource(s1,textView.getText().toString(),type);
+                        Resource obj = new Resource(s1,textView.getText().toString(),type,textView2.getText().toString());
                         json.data.course.get(l).topics.get(p).resources.add(obj);
 
 

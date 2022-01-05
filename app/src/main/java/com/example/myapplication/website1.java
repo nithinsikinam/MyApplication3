@@ -19,7 +19,8 @@ public class website1 extends AppCompatActivity {
         String URL =getIntent().getStringExtra("url");
 
         webView = (WebView) findViewById(R.id.webview);
-
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setAppCacheEnabled(true);
         webView.loadUrl(URL);
 
 

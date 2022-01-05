@@ -11,6 +11,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class AddFile extends AppCompatActivity {
     private TextView textView;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
+    private EditText textView2;
 
     private  int REQ_PDF = 21;
     private  String encodedPDF;
@@ -54,6 +56,7 @@ public class AddFile extends AppCompatActivity {
         textView=findViewById(R.id.textView1);
         btnSelect=findViewById(R.id.btnSelect1);
         btnUpload=findViewById(R.id.button_submit1);
+        textView2 = findViewById(R.id.file2);
 
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +109,7 @@ public class AddFile extends AppCompatActivity {
 
 
                         String s1 = sh.getString("name", "");
-                        Resource obj = new Resource(s1,"http://27.6.130.5:12345/Channels/" + channel + "/"+s1+"."+type,type);
+                        Resource obj = new Resource(s1,"http://27.6.130.5:12345/Channels/" + channel + "/"+s1+textView2.getText().toString()+"."+type,type,textView2.getText().toString());
                         json.data.course.get(l).topics.get(p).resources.add(obj);
 
 
@@ -140,7 +143,7 @@ public class AddFile extends AppCompatActivity {
 
         String s1 = sh.getString("name", "");
 
-        Call<ResponsePOJO> call = RetrofitClient.getInstance().getAPI().uploadDocument(encodedPDF,s1,radioButton.getText().toString(),channel1);
+        Call<ResponsePOJO> call = RetrofitClient.getInstance().getAPI().uploadDocument(encodedPDF,s1+textView2.getText().toString(),radioButton.getText().toString(),channel1);
         call.enqueue(new Callback<ResponsePOJO>() {
             @Override
             public void onResponse(Call<ResponsePOJO> call, Response<ResponsePOJO> response) {
